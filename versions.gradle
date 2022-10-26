@@ -1,0 +1,13 @@
+def addRepos(RepositoryHandler handler) {
+
+    handler.maven { url 'https://jitpack.io' }
+
+    // 友盟
+    handler.maven { url 'https://repo1.maven.org/maven2/' }
+
+    handler.mavenCentral()
+    handler.google()
+    handler.jcenter()
+}
+
+ext.addRepos = this.&addRepos
