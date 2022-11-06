@@ -59,8 +59,11 @@ dependencies {
     api "$library.androidx_constraintlayout"
 
     // Android Jetpack系列
-    api "$library.androidx_viewmodel_ktx"
-    api "$library.androidx_livedata_ktx"
+    api "$library.lifecycle_common"
+    api "$library.livedata"
+    api "$library.livedata_ktx"
+    api "$library.viewmodel"
+    api "$library.viewmodel_ktx"
 
     // kotlin
     api "$library.kotlin_stdlib_jdk7"
