@@ -2,20 +2,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stepyen.yframe">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.YFrame">
+        android:theme="@style/Theme.YFrame"
+        android:name=".core.core.app.BaseApplication"
+        >
+
+        <meta-data
+            android:name="com.stepyen.yframe.app.GlobalConfiguration"
+            android:value="ConfigModule"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        <activity
+            android:name=".StateActivity">
+        </activity>
+        <activity
+            android:name=".articlelist.ArticleListActivity">
+        </activity>
+
+        <activity
+            android:name=".testfragment.TestFragmentActivity">
+        </activity>
+
+        <activity android:name="SplashActivity"
+            android:theme="@style/SplashTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

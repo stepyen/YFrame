@@ -25,12 +25,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
 
-    api "$library.androidx_appcompat"
-    api "$library.androidx_constraintlayout"
-    api "$library.material"
+    api project(":core")
+
+    api "me.jessyan:retrofit-url-manager:1.4.0"
+    api "me.jessyan:rxerrorhandler:2.1.1"
 
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="XPageTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="XFrameTitleBarStyle">@style/XPageTitleBar</item>
+    </style>
+
+    <style name="XPageTitleBar">
+        <item name="tb_barHeight">?attr/xframe_actionbar_height</item>
+        <item name="tb_immersive">false</item>
+        <item name="tb_action_horizontal_padding">?attr/xframe_actionbar_action_horizontal_padding</item>
+        <item name="tb_action_vertical_padding">?attr/xframe_actionbar_action_vertical_padding</item>
+        <item name="tb_sideTextPadding">?attr/xframe_actionbar_side_text_padding</item>
+        <item name="tb_sideTextColor">@color/xframe_default_actionbar_text_color</item>
+        <item name="tb_titleTextColor">@color/xframe_default_actionbar_text_color</item>
+        <item name="tb_subTitleTextColor">@color/xframe_default_actionbar_text_color</item>
+        <item name="tb_actionTextColor">@color/xframe_default_actionbar_text_color</item>
+        <item name="tb_sideTextSize">?attr/xframe_actionbar_action_text_size</item>
+        <item name="tb_titleTextSize">?attr/xframe_actionbar_title_text_size</item>
+        <item name="tb_subTitleTextSize">?attr/xframe_actionbar_sub_text_size</item>
+        <item name="tb_actionTextSize">?attr/xframe_actionbar_action_text_size</item>
+        <item name="tb_dividerColor">@color/xframe_config_color_transparent</item>
+    </style>
+
+</resources>

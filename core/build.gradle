@@ -1,17 +1,18 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 apply from: '../JitPackUpload.gradle'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion setup.compileSdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 1
-        versionName "1.0"
+        versionCode release.versionCode
+        versionName release.versionName
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -37,27 +38,42 @@ android {
 }
 
 dependencies {
-    api "$library.androidx_activity"
-    api "$library.androidx_fragment"
-    api "$library.androidx_legacy"
-    api "$library.androidx_multidex"
-    api "$library.androidx_appcompat"
-    api "$library.androidx_recyclerview"
-    api "$library.androidx_constraintlayout"
+    //Android 系统核心
     api "$library.androidx_core"
     api "$library.androidx_core_ktx"
+
+    api "$library.androidx_appcompat"
+
+    api "$library.androidx_multidex"
+    api "$library.androidx_legacy"
+
+    api "$library.androidx_activity"
     api "$library.androidx_activity_ktx"
+
+    api "$library.androidx_fragment"
     api "$library.androidx_fragment_ktx"
+
+    // Android 系统UI相关
+    api "$library.material"
+    api "$library.androidx_recyclerview"
+    api "$library.androidx_constraintlayout"
+
+    // Android Jetpack系列
     api "$library.androidx_viewmodel_ktx"
     api "$library.androidx_livedata_ktx"
-    api "$library.material"
 
     // kotlin
     api "$library.kotlin_stdlib_jdk7"
-    api "$library.kotlin_coroutines_core"
-    api "$library.kotlin_coroutines_android"
     api "$library.kotlin_android_extensions_runtime"
 
+    // kotlin 协程
+    api "$library.kotlin_coroutines_core"
+    api "$library.kotlin_coroutines_android"
+
+    implementation "io.github.vincent-series:sharp-retrofit:1.9"
+
+
+    // 第三方库
     api "$library.okhttp"
     api "$library.retrofit"
     api "$library.retrofit_converter_gson"
@@ -65,6 +81,7 @@ dependencies {
     api "$library.retrofit_converter_scalars"
     api "$library.okio"
     api "$library.wire_runtime"
+    api "$library.timber"       // 日志工具
 
     // 工具
     api 'com.github.stepyen.XUtil:xutil-core:1.0.6'
@@ -73,15 +90,6 @@ dependencies {
     // UI
     api 'com.github.stepyen:XUI:1.3.15'
 
-    // 6.0权限请求
-    api 'com.qw:soulpermission:1.1.7'
-
-    //状态栏
-    api "com.gyf.immersionbar:immersionbar:3.0.0"
-    api "com.gyf.immersionbar:immersionbar-ktx:3.0.0"
-
-    //万能adapter
-    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
 
 //    api "$library.retrofit_url_manager" //  解决 retrofit 动态修改baseurl问题
     compileOnly "$library.androideventbus"      // 消息通信
