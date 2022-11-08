@@ -10,10 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.stepyen.xui.widget.dialog.MiniLoadingDialog
 import com.stepyen.yframe.core.core.viewmodel.BaseViewModel
 import com.stepyen.yframe.core.gloading.Gloading
-import com.stepyen.yframe.core.widget.actionbar.TitleUtils
 
 /**
  * date：2022/10/26
@@ -27,7 +25,6 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
 
     protected lateinit var mBinding: B
     private var mHolder: Gloading.Holder? = null
-    protected var mLoadingDialog: MiniLoadingDialog? = null
 
     lateinit var vm: VM
 
@@ -122,25 +119,16 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     abstract fun onLoad()
     abstract fun getVMClass(): Class<VM>
 
-    protected open fun initTitleBar(): View? {
-        return TitleUtils.initTitleBarDynamic(mContext, getTitle()) { v -> goBack() }
+    open fun initTitleBar(): View? {
+        return null
     }
 
-    protected fun goBack() {
-        activity?.finish()
+    open fun showLoadDialog() {
+
     }
 
-    protected fun showLoadDialog() {
-        if (mLoadingDialog == null) {
-            mLoadingDialog = MiniLoadingDialog(mContext)
-        }
-        mLoadingDialog?.show()
-    }
+    open fun dismissLoadDialog() {
 
-    protected fun dismissLoadDialog() {
-        if (mLoadingDialog != null) {
-            mLoadingDialog?.dismiss()
-        }
     }
 
     protected fun useEventBus(): Boolean = false

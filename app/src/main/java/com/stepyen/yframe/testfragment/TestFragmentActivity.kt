@@ -2,6 +2,8 @@ package com.stepyen.yframe.testfragment
 
 import android.view.View
 import com.stepyen.yframe.R
+import com.stepyen.yframe.base.AppBaseActivity
+import com.stepyen.yframe.base.AppBaseViewModel
 import com.stepyen.yframe.core.core.activity.BaseActivity
 import com.stepyen.yframe.core.core.viewmodel.BaseViewModel
 import com.stepyen.yframe.databinding.ActivityTestFragmentBinding
@@ -12,7 +14,7 @@ import com.stepyen.yframe.databinding.ActivityTestFragmentBinding
  * description：
  *
  */
-class TestFragmentActivity : BaseActivity<ActivityTestFragmentBinding, BaseViewModel>() {
+class TestFragmentActivity : AppBaseActivity<ActivityTestFragmentBinding, AppBaseViewModel>() {
 
     override fun initTitleBar(): View? = null
 
@@ -30,5 +32,5 @@ class TestFragmentActivity : BaseActivity<ActivityTestFragmentBinding, BaseViewM
     override fun onLoad() {
     }
 
-    override fun getVMClass(): Class<BaseViewModel> = BaseViewModel::class.java
+    override fun getVMClass(): Class<AppBaseViewModel> = AppBaseViewModel::class.java
 }

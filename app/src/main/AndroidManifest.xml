@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.YFrame"
+        android:theme="@style/public_AppTheme"
         android:name=".core.core.app.BaseApplication"
         >
 
@@ -18,7 +18,7 @@
             android:value="ConfigModule"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:exported="true">
         </activity>
 

@@ -3,6 +3,7 @@ package com.stepyen.yframe.articlelist
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.stepyen.yframe.IRequestCallBack
+import com.stepyen.yframe.base.AppBaseViewModel
 import com.stepyen.yframe.bean.ArticleListWrap
 import com.stepyen.yframe.core.core.viewmodel.BaseViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
  * description：
  *
  */
-class ArticleListViewModel : BaseViewModel() {
+class ArticleListViewModel : AppBaseViewModel() {
     val model = ArticleListModel()
 
     val articleListWrapLD: MutableLiveData<ArticleListWrap> = MutableLiveData<ArticleListWrap>()

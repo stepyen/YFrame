@@ -8,10 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
-import com.stepyen.xui.widget.dialog.MiniLoadingDialog
 import com.stepyen.yframe.core.core.viewmodel.BaseViewModel
 import com.stepyen.yframe.core.gloading.Gloading
-import com.stepyen.yframe.core.widget.actionbar.TitleUtils
 
 /**
  * date：2022/10/26
@@ -23,13 +21,12 @@ import com.stepyen.yframe.core.widget.actionbar.TitleUtils
  *
  */
 
-abstract class BaseActivity<B : ViewDataBinding, VM:BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
 
     protected lateinit var mBinding: B
     private var mHolder: Gloading.Holder? = null
-    protected var mLoadingDialog: MiniLoadingDialog? = null
 
-    lateinit var vm :VM
+    lateinit var vm: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,39 +36,39 @@ abstract class BaseActivity<B : ViewDataBinding, VM:BaseViewModel> : AppCompatAc
             mBinding.lifecycleOwner = this
         }
 
-       vm = ViewModelProvider(viewModelStore, ViewModelProvider.NewInstanceFactory())[getVMClass()]
+        vm = ViewModelProvider(viewModelStore, ViewModelProvider.NewInstanceFactory())[getVMClass()]
 
-        vm.stateLD.observe(this){state->
+        vm.stateLD.observe(this) { state ->
             when (state) {
-                BaseViewModel.StateType.LOAD->{
+                BaseViewModel.StateType.LOAD -> {
                     showLoading()
                 }
 
-                BaseViewModel.StateType.FAIL->{
+                BaseViewModel.StateType.FAIL -> {
                     showLoadFailed()
                 }
 
-                BaseViewModel.StateType.NO_NET->{
+                BaseViewModel.StateType.NO_NET -> {
                     showNoNet()
                 }
 
-                BaseViewModel.StateType.EMPTY->{
+                BaseViewModel.StateType.EMPTY -> {
                     showEmpty()
                 }
-                BaseViewModel.StateType.SUCCEED->{
+                BaseViewModel.StateType.SUCCEED -> {
                     showLoadSuccess()
                 }
             }
 
         }
 
-        vm.loadDialogLD.observe(this){state->
+        vm.loadDialogLD.observe(this) { state ->
             when (state) {
-                BaseViewModel.LoadDialogType.SHOW->{
+                BaseViewModel.LoadDialogType.SHOW -> {
                     showLoadDialog()
                 }
 
-                BaseViewModel.LoadDialogType.DISMISS->{
+                BaseViewModel.LoadDialogType.DISMISS -> {
                     dismissLoadDialog()
                 }
 
@@ -86,7 +83,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM:BaseViewModel> : AppCompatAc
     abstract fun getLayoutId(): Int
     abstract fun onInit()
     abstract fun onLoad()
-    abstract fun getVMClass():Class<VM>
+    abstract fun getVMClass(): Class<VM>
 
     private fun configTitleBar() {
         val contentParent = findViewById<ViewGroup>(android.R.id.content)
@@ -116,28 +113,20 @@ abstract class BaseActivity<B : ViewDataBinding, VM:BaseViewModel> : AppCompatAc
         contentParent.addView(linearLayout)
     }
 
-    protected open fun initTitleBar(): View? {
-        return TitleUtils.initTitleBarDynamic(this, title) { v -> goBack() }
+    open fun initTitleBar(): View? {
+        return null
     }
 
-    protected fun goBack() {
-        finish()
+
+    open fun showLoadDialog() {
+
     }
 
-    protected fun showLoadDialog() {
-        if (mLoadingDialog == null) {
-            mLoadingDialog = MiniLoadingDialog(this)
-        }
-        mLoadingDialog?.show()
+    open fun dismissLoadDialog() {
+
     }
 
-    protected fun dismissLoadDialog() {
-        if (mLoadingDialog != null) {
-            mLoadingDialog?.dismiss()
-        }
-    }
-
-    protected fun useEventBus(): Boolean = false
+    open fun useEventBus(): Boolean = false
 
 
     protected fun initGloadingHolder() {

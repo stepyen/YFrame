@@ -1,6 +1,8 @@
 package com.stepyen.yframe.testfragment
 
 import com.stepyen.yframe.R
+import com.stepyen.yframe.base.AppBaseFragment
+import com.stepyen.yframe.base.AppBaseViewModel
 import com.stepyen.yframe.core.core.fragment.BaseFragment
 import com.stepyen.yframe.core.core.viewmodel.BaseViewModel
 import com.stepyen.yframe.databinding.FragmentTestBinding
@@ -11,7 +13,7 @@ import com.stepyen.yframe.databinding.FragmentTestBinding
  * description：
  *
  */
-class TestFragment : BaseFragment<FragmentTestBinding, BaseViewModel>() {
+class TestFragment : AppBaseFragment<FragmentTestBinding, AppBaseViewModel>() {
 
     companion object{
         fun newInstance(): TestFragment {
@@ -41,5 +43,5 @@ class TestFragment : BaseFragment<FragmentTestBinding, BaseViewModel>() {
 
     }
 
-    override fun getVMClass(): Class<BaseViewModel> = BaseViewModel::class.java
+    override fun getVMClass(): Class<AppBaseViewModel> = AppBaseViewModel::class.java
 }

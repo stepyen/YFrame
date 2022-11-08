@@ -1,13 +1,23 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="XUITheme.Phone">
+    <style name="public_AppTheme" parent="XUITheme.Phone">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/public_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/public_colorPrimaryDark</item>
+        <item name="colorAccent">@color/public_colorAccent</item>
 
+        <item name="android:screenOrientation">portrait</item>
 
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
+        <!--标题栏的背景颜色-->
+        <item name="xui_actionbar_color">@color/public_colorPrimary</item>
+        <item name="xui_actionbar_text_color">@color/public_big_title</item>
+        <item name="xui_actionbar_ic_navigation_back">@mipmap/icon_common_arrowleft</item>
 
     </style>
+
 
 
     <style name="SplashTheme" parent="XUITheme.Launch">

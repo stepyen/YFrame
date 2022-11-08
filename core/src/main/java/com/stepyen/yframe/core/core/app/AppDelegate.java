@@ -8,9 +8,6 @@ import android.content.ComponentCallbacks2;
 import android.content.ContentProvider;
 import android.content.Context;
 import android.content.res.Configuration;
-
-import com.stepyen.xui.XUI;
-import com.stepyen.xutil.XUtil;
 import com.stepyen.yframe.core.core.IConfigModule;
 import com.stepyen.yframe.core.core.ManifestParser;
 import com.stepyen.yframe.core.core.activity.ActivityLifecycle;
@@ -70,8 +67,7 @@ public class AppDelegate implements IApp, IAppLifecycles {
     @Override
     public void onCreate(@NonNull Application application) {
         this.mApplication = application;
-        XUtil.init(mApplication);
-        XUI.init(mApplication);
+
         YFrameUtils.init(mApplication);
 
         mAppComponent = new AppComponent.Builder()

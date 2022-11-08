@@ -56,50 +56,6 @@ public class YFrameUtils {
     }
 
     /**
-     * dp 转 px
-     *
-     * @param dpValue {@code dpValue}
-     * @return {@code pxValue}
-     */
-    public static int dp2px( float dpValue) {
-        final float scale = getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
-
-    /**
-     * px 转 dp
-     *
-     * @param pxValue {@code pxValue}
-     * @return {@code dpValue}
-     */
-    public static int px2dp( int pxValue) {
-        final float scale = getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
-
-    /**
-     * sp 转 px
-     *
-     * @param spValue {@code spValue}
-     * @return {@code pxValue}
-     */
-    public static int sp2px(float spValue) {
-        final float fontScale = getResources().getDisplayMetrics().scaledDensity;
-        return (int) (spValue * fontScale + 0.5f);
-    }
-
-    /**
-     * px 转 sp
-     *
-     * @param pxValue {@code pxValue}
-     * @return {@code spValue}
-     */
-    public static int px2sp( float pxValue) {
-        final float fontScale = getResources().getDisplayMetrics().scaledDensity;
-        return (int) (pxValue / fontScale + 0.5f);
-    }
-
-    /**
      * 获得资源
      */
     public static Resources getResources() {
@@ -125,10 +81,11 @@ public class YFrameUtils {
 
     /**
      * 从 dimens 中获得尺寸
+     *
      * @param dimenName
      * @return
      */
-    public static float getDimens( String dimenName) {
+    public static float getDimens(String dimenName) {
         return getResources().getDimension(getResources().getIdentifier(dimenName, "dimen", mContext.getPackageName()));
     }
 
@@ -146,7 +103,7 @@ public class YFrameUtils {
      *
      * @return
      */
-    public static String getString( String strName) {
+    public static String getString(String strName) {
         return getString(getResources().getIdentifier(strName, "string", mContext.getPackageName()));
     }
 
@@ -172,10 +129,9 @@ public class YFrameUtils {
     /**
      * 获得颜色
      */
-    public static int getColor( String colorName) {
-        return getColor( getResources().getIdentifier(colorName, "color", mContext.getPackageName()));
+    public static int getColor(String colorName) {
+        return getColor(getResources().getIdentifier(colorName, "color", mContext.getPackageName()));
     }
-
 
 
     /**
@@ -195,7 +151,7 @@ public class YFrameUtils {
      * @param rID
      * @return
      */
-    public static Drawable getDrawable( int rID) {
+    public static Drawable getDrawable(int rID) {
         return getResources().getDrawable(rID);
     }
 
@@ -231,18 +187,27 @@ public class YFrameUtils {
      *
      * @return
      */
-    public static int getScreenHeidth() {
+    public static int getScreenHeight() {
         return getResources().getDisplayMetrics().heightPixels;
     }
 
 
     /**
-     * 移除孩子
+     * 移除子视图
      *
      * @param view
      */
     public static void removeChild(View view) {
+
+        if (view == null) {
+            return;
+        }
+
         ViewParent parent = view.getParent();
+        if (parent == null) {
+            return;
+        }
+
         if (parent instanceof ViewGroup) {
             ViewGroup group = (ViewGroup) parent;
             group.removeView(view);
@@ -250,15 +215,11 @@ public class YFrameUtils {
     }
 
     public static boolean isNoEmpty(String string) {
-        if (string == null || TextUtils.isEmpty(string)) {
-            return false;
-        }
-
-        return true;
+        return TextUtils.isEmpty(string);
     }
 
     public static boolean isNoEmpty(List list) {
-        if (list == null ||list.isEmpty()) {
+        if (list == null || list.isEmpty()) {
             return false;
         }
 
@@ -266,7 +227,7 @@ public class YFrameUtils {
     }
 
     public static boolean isNoEmpty(Object object) {
-        if (object == null ) {
+        if (object == null) {
             return false;
         }
 

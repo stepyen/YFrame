@@ -1,6 +1,7 @@
 package com.stepyen.yframe.articlelist
 
 import com.stepyen.yframe.R
+import com.stepyen.yframe.base.AppBaseActivity
 import com.stepyen.yframe.core.core.activity.BaseActivity
 import com.stepyen.yframe.databinding.ActivityArticleListBinding
 
@@ -10,7 +11,7 @@ import com.stepyen.yframe.databinding.ActivityArticleListBinding
  * description：
  *
  */
-class ArticleListActivity : BaseActivity<ActivityArticleListBinding, ArticleListViewModel>() {
+class ArticleListActivity : AppBaseActivity<ActivityArticleListBinding, ArticleListViewModel>() {
     override fun getLayoutId() = R.layout.activity_article_list
 
     override fun onInit() {
