@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.1925925925925926" />
+        <entry key="app/src/main/res/drawable/public_shape_radius_green.xml" value="0.1925925925925926" />
+        <entry key="app/src/main/res/layout/activity_article_list.xml" value="0.45729166666666665" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.5598958333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15185185185185185" />
+        <entry key="app/src/main/res/layout/activity_state.xml" value="0.271523178807947" />
+        <entry key="app/src/main/res/layout/activity_test_fragment.xml" value="0.43802083333333336" />
+        <entry key="app/src/main/res/layout/fragment_test.xml" value="0.43802083333333336" />
+        <entry key="app/src/main/res/layout/public_view_empty.xml" value="0.43697916666666664" />
+        <entry key="app/src/main/res/layout/public_view_error.xml" value="0.43697916666666664" />
+        <entry key="app/src/main/res/layout/public_view_loading.xml" value="0.43697916666666664" />
+        <entry key="app/src/main/res/layout/public_view_net_error.xml" value="0.43697916666666664" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16018518518518518" />
       </map>
     </option>
