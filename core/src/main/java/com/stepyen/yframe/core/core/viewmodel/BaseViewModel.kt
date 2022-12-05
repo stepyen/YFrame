@@ -60,7 +60,7 @@ open class BaseViewModel : ViewModel() {
         }
     }
 
-    val loadDialogLD: LiveData<Int> = object : MutableLiveData<Int>() {
+    val loadDialogLD: MutableLiveData<Int> = object : MutableLiveData<Int>() {
         override fun postValue(@LoadDialogType value: Int?) {
             super.postValue(value)
         }
