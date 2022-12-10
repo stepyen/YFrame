@@ -134,7 +134,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     protected fun useEventBus(): Boolean = false
 
 
-    protected fun initGloadingHolder() {
+    open fun initGloadingHolder() {
 
         if (mHolder == null) {
             mHolder = Gloading.getDefault().wrap(mBinding.root).withRetry(Runnable { onLoad() })

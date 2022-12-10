@@ -129,7 +129,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> : AppCompat
     open fun useEventBus(): Boolean = false
 
 
-    protected fun initGloadingHolder() {
+    open fun initGloadingHolder() {
 
         if (mHolder == null) {
             mHolder = Gloading.getDefault().wrap(mBinding.root).withRetry(Runnable { onLoad() })
