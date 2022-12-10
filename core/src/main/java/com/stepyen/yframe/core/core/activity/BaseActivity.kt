@@ -24,7 +24,7 @@ import com.stepyen.yframe.core.gloading.Gloading
 abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
 
     protected lateinit var mBinding: B
-    private var mHolder: Gloading.Holder? = null
+    protected var mHolder: Gloading.Holder? = null
 
     lateinit var vm: VM
 

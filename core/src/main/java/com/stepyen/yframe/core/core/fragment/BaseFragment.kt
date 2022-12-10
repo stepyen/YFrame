@@ -24,7 +24,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     protected var mContext: Context? = null
 
     protected lateinit var mBinding: B
-    private var mHolder: Gloading.Holder? = null
+    protected var mHolder: Gloading.Holder? = null
 
     lateinit var vm: VM
 
